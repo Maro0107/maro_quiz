@@ -1,0 +1,24 @@
+package pl.maro_projekt.maro_quiz.frontend;
+
+import lombok.extern.java.Log;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+@Log
+public class FrontController {
+
+    @GetMapping("/")
+    public String hello(Model model) {
+        return "index1";
+    }
+
+    @PostMapping ("/select")
+    public String postSelectForm(Model model, @ModelAttribute GameOptions gameOptions) {
+        log.info("Form submitted with data: " + gameOptions);
+        return "select";
+    }
+}
