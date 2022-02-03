@@ -16,9 +16,15 @@ public class FrontController {
         return "index1";
     }
 
+    @GetMapping("/select")
+    public String select(Model model) {
+        model.addAttribute("gameOptions", new GameOptions());
+        return "select";
+    }
+
     @PostMapping ("/select")
     public String postSelectForm(Model model, @ModelAttribute GameOptions gameOptions) {
         log.info("Form submitted with data: " + gameOptions);
-        return "select";
+        return "index1";
     }
 }
